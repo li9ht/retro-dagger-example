@@ -5,7 +5,7 @@ import com.escorps.retrodagger.api.MyApi;
 
 import dagger.Module;
 import dagger.Provides;
-import retrofit.RestAdapter;
+import retrofit2.Retrofit;
 
 @Module
 public class InteractorsModule {
@@ -14,11 +14,11 @@ public class InteractorsModule {
         return new FindItemsInteractorImpl(myApi);
     }
 
-    @Provides public MyApi provideMyApi(RestAdapter restAdapter) {
+    @Provides public MyApi provideMyApi(Retrofit restAdapter) {
         return restAdapter.create(MyApi.class);
     }
 
-    @Provides public RestAdapter provideRestAdapter() {
+    @Provides public Retrofit provideRestAdapter() {
         return RestApiAdapter.getInstance();
     }
 

@@ -18,18 +18,18 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 public class MainActivity extends BaseActivity implements MainView {
 
     @Inject
     MainPresenter presenter;
 
-    @InjectView(R.id.recycler)
+    @Bind(R.id.recycler)
     RecyclerView recyclerView;
 
-    @InjectView(R.id.progress)
+    @Bind(R.id.progress)
     ProgressBar progressBar;
 
     @Inject
@@ -40,7 +40,7 @@ public class MainActivity extends BaseActivity implements MainView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
     }

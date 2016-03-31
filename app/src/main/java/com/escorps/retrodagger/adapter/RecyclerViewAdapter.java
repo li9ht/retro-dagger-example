@@ -5,11 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import com.escorps.retrodagger.R;
 import com.escorps.retrodagger.models.PetModel;
+
 import java.util.List;
+
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
 
@@ -39,12 +42,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     protected static class ViewHolder extends RecyclerView.ViewHolder {
 
-        @InjectView(R.id.textName) TextView textName;
+        @Bind(R.id.textName) TextView textName;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            
-            ButterKnife.inject(this, itemView);
+            ButterKnife.bind(this,itemView);
         }
     }
 

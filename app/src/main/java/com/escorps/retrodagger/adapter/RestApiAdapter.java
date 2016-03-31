@@ -1,17 +1,18 @@
 package com.escorps.retrodagger.adapter;
 
 import com.escorps.retrodagger.utils.Constants;
-import retrofit.RestAdapter;
+
+import retrofit2.Retrofit;
 
 public class RestApiAdapter {
     
-    private static RestAdapter sharedInstance = null;
+    private static Retrofit sharedInstance = null;
 
-    public static RestAdapter getInstance() {
+    public static Retrofit getInstance() {
         if (sharedInstance == null){
 
-            sharedInstance = new RestAdapter.Builder()
-                    .setEndpoint(Constants.URL)
+            sharedInstance = new Retrofit.Builder()
+                    .baseUrl(Constants.URL)
                     .build();
         }
 

@@ -8,9 +8,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class FindItemsInteractorImpl implements FindItemsInteractor {
 
@@ -24,15 +25,14 @@ public class FindItemsInteractorImpl implements FindItemsInteractor {
 
 
         getPetsApi.getPets(new Callback<List<PetModel>>() {
-
             @Override
-            public void success(List<PetModel> petModelList, Response response) {
-                listener.onFinished(petModelList);
+            public void onResponse(Call<List<PetModel>> call, Response<List<PetModel>> response) {
+                listener.onFinished(response.body());
             }
 
             @Override
-            public void failure(RetrofitError retrofitError) {
-                retrofitError.printStackTrace();
+            public void onFailure(Call<List<PetModel>> call, Throwable t) {
+
             }
         });
 

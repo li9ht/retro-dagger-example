@@ -36,3 +36,6 @@ build/
 gradle/wrapper/
 gradlew
 gradlew.bat
+.idea
+build
+/app/app.iml
